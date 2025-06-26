@@ -1,0 +1,237 @@
+/* Base styles */
+.top-header {
+  padding: 40px 60px 30px;
+  background-color: #fdeeee;
+}
+
+.brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.business-logo {
+  max-width: 125px;  
+  height: auto;
+  display: block;    
+}
+
+.tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #000;
+  margin: 0;
+  position: absolute;
+  top: 100%; 
+  right: 0;   
+
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0;
+  list-style: none;
+  max-width: 1400px;
+}
+
+.nav-links li {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #D4AF37;
+}
+
+/* HOME PAGE - Services */
+
+body {
+  background-color: #fdeeee; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f0f0f; 
+  margin: 0;
+}
+
+
+.price-list {
+  max-width: 720px;
+  margin: 0 0 0 2rem;  
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+.price-list h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #d75480; 
+}
+
+.prices-grid {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 12px 24px;
+  border-top: 2px solid #f5c6d0;
+  padding-top: 1rem;
+
+  max-width: 600px;      
+  margin-left: auto;     
+  margin-right: auto;    
+}
+
+
+.service {
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f5c6d0;
+}
+
+.price {
+  font-weight: 700;
+  text-align: right;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f5c6d0;
+  color: #ad4677; 
+}
+
+/* HOME PAGE - Schedule*/
+
+.schedule-list {
+  max-width: 720px;
+  margin: 0 0 0 2rem;  
+  background: #ffffff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+.schedule-list h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #d75480; 
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 12px 24px;
+  border-top: 2px solid #f5c6d0;
+  padding-top: 1rem;
+
+  max-width: 600px;      
+  margin-left: auto;     
+  margin-right: auto;    
+}
+
+
+.schedule {
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f5c6d0;
+}
+
+.times {
+  font-weight: 700;
+  text-align: right;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f5c6d0;
+  color: #ad4677; 
+}
+
+.info-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+.price-list,
+.schedule-list {
+  width: 50%;
+  margin: 0;
+  max-width: 50%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .price-list,
+  .schedule-list {
+    flex: 1 1 100%;
+  }
+}
+
+.price-list,
+.schedule-list {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.1s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.price-list:hover,
+.schedule-list:hover {
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
+  transform: translateY(-3px);
+}
+
+.price-list h2,
+.schedule-list h2 {
+  transition: color 0.3s ease;
+}
+
+.price-list h2:hover,
+.schedule-list h2:hover {
+  color: #b13d6a; 
+}
+
+.service,
+.schedule,
+.price,
+.times {
+  transition: color 0.3s ease;
+}
+
+.service:hover,
+.schedule:hover,
+.price:hover,
+.times:hover {
+  color: #b13d6a;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Raman's Threading</title>
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+   <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #fff0f5, #ffe6e6);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    .about-container {
+      max-width: 700px;
+      margin: 80px auto;
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      border: 1px solid #f3c0cb;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-container h1 {
+      color: #b85778;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .about-container h1::after {
+      content: '';
+      display: block;
+      margin: 10px auto 0;
+      width: 60px;
+      height: 4px;
+      background-color: #f3c0cb;
+      border-radius: 2px;
+    }
+
+    .info {
+      font-size: 17px;
+      margin: 18px 0;
+      padding-left: 10px;
+      border-left: 4px solid #f3c0cb;
+      background-color: #fff8f8;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .info strong {
+      color: #b85778;
+      font-weight: 600;
+    }
+
+    .statement {
+      margin-top: 30px;
+      font-size: 17px;
+      line-height: 1.7;
+      background-color: #fff5f8;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #f3c0cb;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .about-container {
+        margin: 40px 20px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="top-header">
+    <div class="brand-container">
+      <img src="{{ url_for('static', filename='rklogo-removebg-preview.png') }}" alt="Raman’s Threading Logo" class="business-logo" />
+      <p class="tagline">Precision. Beauty. Confidence</p>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('appointments') }}">Book an Appointment</a></li>
+      <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Content -->
+  <div class="about-container">
+    <h1>About Us</h1>
+
+    <div class="info">
+      <strong>Contact:</strong> (530) 301-1769
+    </div>
+    <div class="info">
+      <strong>Address:</strong> 1969 Michelle Dr, Yuba City, CA 95993
+    </div>
+
+    <div class="statement">
+      At Raman's Threading, we take pride in offering personalized beauty services in a warm, welcoming environment.
+      Whether it's your first visit or your fiftieth, we're here to make you feel confident and cared for.
+    </div>
+  </div>
+
+</body>
+</html>
