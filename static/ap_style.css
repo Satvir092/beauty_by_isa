@@ -214,4 +214,20 @@ select#time:focus {
   .note {
     font-size: 0.8rem;
   }
+
+   .brand-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .tagline {
+    position: static; /* Removes absolute positioning */
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .business-logo {
+    max-width: 100px;
+    height: auto;
+}
 }

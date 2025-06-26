@@ -199,7 +199,22 @@ body {
   .price-list h2,
   .schedule-list h2 {
     font-size: 2rem;
+  
   }
+   .brand-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .tagline {
+    position: static; /* Removes absolute positioning */
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .business-logo {
+    max-width: 100px;
+    height: auto;
 }
 
 .price-list,
@@ -247,4 +262,5 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
 }
