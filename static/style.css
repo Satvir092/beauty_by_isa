@@ -185,7 +185,20 @@ body {
 @media (max-width: 768px) {
   .price-list,
   .schedule-list {
-    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem auto; /* Add spacing between them */
+  }
+
+  .prices-grid,
+  .schedule-grid {
+    grid-template-columns: 1fr 1fr; /* Keeps two-column layout but adjusts better on small screens */
+    gap: 8px 12px;
+  }
+
+  .price-list h2,
+  .schedule-list h2 {
+    font-size: 2rem;
   }
 }
 
