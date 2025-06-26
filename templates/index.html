@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raman's Threading</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="brand-container">
+      <img src="{{ url_for('static', filename='rklogo-removebg-preview.png') }}" alt="Raman’s Threading Logo" class="business-logo" />
+      <p class="tagline">Precision. Beauty. Confidence</p>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('appointments') }}">Book an Appointment</a></li>
+      <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    </ul>
+  </nav>
+
+<div class="info-section">
+  <section class="price-list">
+    <h2>Service Prices</h2>
+    <div class="prices-grid">
+      <div class="service">Lip</div><div class="price">$4</div>
+      <div class="service">Chin</div><div class="price">$4</div>
+      <div class="service">Forehead</div><div class="price">$6</div>
+      <div class="service">Eyebrows</div><div class="price">$8</div>
+      <div class="service">Side</div><div class="price">$8</div>
+      <div class="service">Neck</div><div class="price">$8</div>
+      <div class="service">Eyebrow and Lip</div><div class="price">$12</div>
+      <div class="service">Eyebrow, Lip, and Chin</div><div class="price">$17</div>
+      <div class="service">Full Face</div><div class="price">$26</div>
+      <div class="service">Full Face and Neck</div><div class="price">$30</div>
+    </div>
+  </section>
+
+  <section class="schedule-list">
+    <h2>Our Schedule</h2>
+    <div class="schedule-grid">
+      <div class="schedule">Monday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Tuesday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Wednesday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Thursday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Friday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Saturday</div><div class="times">9:30-6:30</div>
+      <div class="schedule">Sunday</div><div class="times">Closed</div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>

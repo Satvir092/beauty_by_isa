@@ -1,0 +1,64 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff5f7; 
+    margin: 0;
+    padding: 0;
+    color: #4b2e2e; 
+}
+
+.email-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #fff0f5; 
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(255, 192, 203, 0.3); 
+    text-align: center;
+    border: 1px solid #f9dbe3; 
+}
+
+.email-container h2 {
+    color: #c94f7c; 
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.email-container p {
+    font-size: 18px;
+    color: #5a3e3e;
+    line-height: 1.6;
+}
+
+.email-highlight {
+    color: #d6336c;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+@media (max-width: 600px) {
+    .email-container {
+        margin: 30px 20px;
+        padding: 25px;
+    }
+
+    .email-container p {
+        font-size: 16px;
+    }
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #f8cdd4;  
+    color: #4b2e2e;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #f4b9c1; 
+}
