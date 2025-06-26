@@ -27,6 +27,7 @@ app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['OWNER_EMAIL'] = os.getenv('OWNER_EMAIL')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 
 mail = Mail(app)
 
