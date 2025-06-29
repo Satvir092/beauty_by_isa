@@ -5,7 +5,8 @@ from itsdangerous import URLSafeTimedSerializer
 from datetime import date
 import logging
 import os
-import sqlite3
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 logging.basicConfig(
     level=logging.INFO,
@@ -43,19 +44,25 @@ def confirm_token(token, expiration=3600):
         return False
     return data
 
+def get_db_connection():
+    conn = psycopg2.connect(os.getenv('DATABASE_URL'))
+    return conn
+
 def init_db():
-    with sqlite3.connect("appointments.db", timeout=5) as conn:
-        conn.execute("PRAGMA journal_mode=WAL;")
-        conn.execute('''
-            CREATE TABLE IF NOT EXISTS appointments (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                date TEXT NOT NULL,
-                email TEXT NOT NULL,
-                phone TEXT NOT NULL,
-                instagram TEXT NOT NULL
-            )
-        ''')
+    conn = get_db_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS appointments (
+                    id SERIAL PRIMARY KEY,
+                    name TEXT NOT NULL,
+                    date DATE NOT NULL,
+                    email TEXT NOT NULL,
+                    phone TEXT NOT NULL,
+                    instagram TEXT NOT NULL
+                );
+            ''')
+    conn.close()
 
 @app.route('/')
 def index():
@@ -91,37 +98,40 @@ def verify_email(token):
     date_val = data['date']
     email = data['email']
     phone = data['phone']
-    instragram = data['instagram']
+    instagram = data['instagram']
 
     app.logger.info(f"Booking verified: {name} | {date_val} | Email: {email}")
 
-    with sqlite3.connect("appointments.db", timeout=5) as conn:
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO appointments (name, date, email, phone, instagram) VALUES (?, ?, ?, ?, ?)",
-                       (name, date_val, email, phone))
-        conn.commit()
+    conn = get_db_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO appointments (name, date, email, phone, instagram) VALUES (%s, %s, %s, %s, %s)",
+                (name, date_val, email, phone, instagram)
+            )
+    conn.close()
 
-        owner_msg = Message("New Appointment Booked",
-                            sender=app.config['MAIL_USERNAME'],
-                            recipients=[app.config['OWNER_EMAIL']])
+    owner_msg = Message("New Appointment Booked",
+                        sender=app.config['MAIL_USERNAME'],
+                        recipients=[app.config['OWNER_EMAIL']])
 
-        owner_msg.html = f"""
-        <html>
-        <body style='margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #fff8f0; color: #222;'>
-            <div style='max-width: 600px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; border: 1px solid #f3c0cb;'>
-                <h2 style='color: #b85778;'>New Appointment Confirmed</h2>
-                <hr style='border: none; height: 1px; background-color: #f3c0cb;' />
-                <p><strong>Name:</strong> {name}</p>
-                <p><strong>Email:</strong> {email}</p>
-                <p><strong>Phone #:</strong> {phone or 'N/A'}</p>
-                <p><strong>Date:</strong> {date_val}</p>
-                <p><strong>Instagram:</strong> {instragram}</p>
-                <hr style='border: none; height: 1px; background-color: #f3c0cb;' />
-            </div>
-        </body>
-        </html>
-        """
-        mail.send(owner_msg)
+    owner_msg.html = f"""
+    <html>
+    <body style='margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #fff8f0; color: #222;'>
+        <div style='max-width: 600px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; border: 1px solid #f3c0cb;'>
+            <h2 style='color: #b85778;'>New Appointment Confirmed</h2>
+            <hr style='border: none; height: 1px; background-color: #f3c0cb;' />
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Phone #:</strong> {phone or 'N/A'}</p>
+            <p><strong>Date:</strong> {date_val}</p>
+            <p><strong>Instagram:</strong> {instagram}</p>
+            <hr style='border: none; height: 1px; background-color: #f3c0cb;' />
+        </div>
+    </body>
+    </html>
+    """
+    mail.send(owner_msg)
 
     return render_template("confirmation.html", name=name, date=date_val)
 
@@ -135,18 +145,20 @@ def book():
 
     app.logger.info(f"Booking requested: {name} | {date_val} | Email: {email}")
 
-    with sqlite3.connect("appointments.db", timeout=5) as conn:
-        cursor = conn.cursor()
+    conn = get_db_connection()
+    with conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM appointments WHERE email=%s AND date=%s", (email, date_val))
+            already_booked = cursor.fetchone()
+            if already_booked:
+                return render_template("error.html", message="You already have an appointment booked for that day. Only one appointment is allowed per day.")
 
-        cursor.execute("SELECT * FROM appointments WHERE email=? AND date=?", (email, date_val))
-        already_booked = cursor.fetchone()
-        if already_booked:
-            return render_template("error.html", message="You already have an appointment booked for that day. Only one appointment is allowed per day.")
+            cursor.execute("SELECT COUNT(*) FROM appointments WHERE date=%s", (date_val,))
+            count = cursor.fetchone()[0]
+            if count >= 3:
+                return render_template("error.html", message="Sorry, the maximum number of appointments for this day has been reached. Please choose another day.")
 
-        cursor.execute("SELECT COUNT(*) FROM appointments WHERE date=?", (date_val,))
-        count = cursor.fetchone()[0]
-        if count >= 3:
-            return render_template("error.html", message="Sorry, the maximum number of appointments for this day has been reached. Please choose another day.")
+    conn.close()
 
     data = {'name': name, 'date': date_val, 'email': email, 'phone': phone, 'instagram': instagram}
     token = generate_token(data)
@@ -177,5 +189,8 @@ def book():
 
     return render_template("check_email.html", email=email)
 
+
 if __name__ == "__main__":
+    # Make sure DB is initialized when starting app
+    init_db()
     app.run(debug=False)
