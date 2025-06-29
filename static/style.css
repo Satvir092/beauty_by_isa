@@ -94,7 +94,7 @@ body {
   background: #ffffff;
   padding: 2rem 3rem;
   border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(94, 23, 66, 0.15);
+  box-shadow: 0 14px 35px rgba(94, 23, 66, 0.25);;
 }
 
 .price-list h2 {
@@ -130,147 +130,115 @@ body {
   color: #a53f6b;
 }
 
-/* HOME PAGE - Schedule */
-.schedule-list {
-  max-width: 720px;
-  margin: 0 0 0 2rem;
-  background: #ffffff;
-  padding: 2rem 3rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(94, 23, 66, 0.15);
-}
+/* === Homepage Layout: Pricing + Schedule === */
 
-.schedule-list h2 {
-  text-align: center;
-  font-weight: 800;
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: #5e1742;
-}
-
-.schedule-grid {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr;
-  gap: 12px 24px;
-  border-top: 2px solid #ebc1d2;
-  padding-top: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.schedule {
-  font-weight: 600;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #ebc1d2;
-}
-
-.times {
-  font-weight: 700;
-  text-align: right;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #ebc1d2;
-  color: #a53f6b;
-}
-
-/* Layout & Responsive */
+/* === Section Wrapper === */
 .info-section {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  margin: 0;
-  gap: 0;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(to bottom, #fff0f5, #fde6ec);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* === Shared Card Styles === */
 .price-list,
 .schedule-list {
-  width: 50%;
-  margin: 0;
-  max-width: 50%;
-  box-sizing: border-box;
+  flex: 1 1 340px;
+  background: #fff9fb;
+  padding: 2.5rem;
+  border-radius: 18px;
+  border: 1px solid #e4a3b5;
+  box-shadow: 0 14px 35px rgba(94, 23, 66, 0.25);
+  animation: fadeInUp 0.6s ease both;
+  max-width: 480px;
 }
 
+/* === Headings === */
+.price-list h2,
+.schedule-list h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #5e1742;
+  position: relative;
+}
+
+.price-list h2::after,
+.schedule-list h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin: 10px auto 0;
+  background: #5e1742;
+  border-radius: 2px;
+}
+
+/* === Grid === */
+.prices-grid,
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px 18px;
+}
+
+.service,
+.schedule {
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e4a3b5;
+  color: #5e1742;
+}
+
+.price,
+.times {
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-align: right;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e4a3b5;
+  color: #a53f6b;
+}
+
+/* === Responsive Design === */
 @media (max-width: 768px) {
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
   .price-list,
   .schedule-list {
     width: 100%;
-    max-width: 100%;
-    margin: 1rem auto;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .prices-grid,
   .schedule-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 12px;
+    gap: 10px 12px;
   }
 
   .price-list h2,
   .schedule-list h2 {
     font-size: 2rem;
   }
+}
 
-  .brand-container {
-    align-items: center;
-    text-align: center;
-  }
-
-  .tagline {
-    position: static;
-    margin-top: 10px;
-    font-size: 1rem;
-  }
-
-  .business-logo {
-    max-width: 100px;
-    height: auto;
-  }
-
-  .price-list,
-  .schedule-list {
+/* === Animation === */
+@keyframes fadeInUp {
+  from {
     opacity: 0;
-    transform: translateY(15px);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: 0.1s;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    cursor: default;
+    transform: translateY(20px);
   }
-
-  .price-list:hover,
-  .schedule-list:hover {
-    box-shadow: 0 8px 18px rgba(94, 23, 66, 0.25);
-    transform: translateY(-3px);
-  }
-
-  .price-list h2,
-  .schedule-list h2 {
-    transition: color 0.3s ease;
-  }
-
-  .price-list h2:hover,
-  .schedule-list h2:hover {
-    color: #a53f6b;
-  }
-
-  .service,
-  .schedule,
-  .price,
-  .times {
-    transition: color 0.3s ease;
-  }
-
-  .service:hover,
-  .schedule:hover,
-  .price:hover,
-  .times:hover {
-    color: #a53f6b;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
