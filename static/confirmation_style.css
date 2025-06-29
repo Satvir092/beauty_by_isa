@@ -1,7 +1,7 @@
 body {
-  background-color: #fff7f8; /* soft cream-pink */
+  background-color: #fff9f9; /* off-white soft cream */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #5a3a3a;
+  color: #5e1742; /* deep plum */
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,10 +11,10 @@ body {
 }
 
 .appointment-section {
-  background-color: #fff0f3; /* light pink */
+  background-color: #fce4ec; /* muted blush */
   padding: 3rem 4rem;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+  box-shadow: 0 4px 12px rgba(94, 23, 66, 0.15);
   text-align: center;
   max-width: 500px;
   animation: fadeIn 0.6s ease-in-out;
@@ -22,30 +22,33 @@ body {
 
 .appointment-section h2 {
   font-size: 2.5rem;
-  color: #d75480; /* rich pink */
+  color: #5e1742; /* deep plum */
   margin-bottom: 1rem;
 }
 
 .appointment-section p {
   font-size: 1.2rem;
   margin: 0.5rem 0;
+  color: #7a2e4d; /* softer plum */
 }
 
 .back-button {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 10px 20px;
-  background-color: #f8cdd3;
-  color: #5a3a3a;
+  background-color: #c96f86; /* rosy copper */
+  color: #fff9f9; /* off-white */
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(201, 111, 134, 0.3);
 }
 
 .back-button:hover {
-  background-color: #f3b5be;
-  color: #3c2b2b;
+  background-color: #a14a6a; /* darker rosy copper */
+  color: #fff9f9;
+  box-shadow: 0 6px 12px rgba(161, 74, 106, 0.4);
 }
 
 @keyframes fadeIn {
@@ -70,7 +73,7 @@ body {
     padding: 2rem 1.2rem;
     border-radius: 12px;
     max-width: 100%;
-    box-shadow: 0 3px 10px rgba(255, 182, 193, 0.2);
+    box-shadow: 0 3px 10px rgba(94, 23, 66, 0.12);
   }
 
   .appointment-section h2 {
