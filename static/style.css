@@ -1,7 +1,7 @@
 /* Base styles */
 .top-header {
   padding: 40px 60px 30px;
-  background-color: #fdeeee;
+  background-color: #fce4ec;
 }
 
 .brand-container {
@@ -11,76 +11,90 @@
   position: relative;
 }
 
-.business-logo {
-  max-width: 125px;  
-  height: auto;
-  display: block;    
+.logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 44px;
+  color: #5e1742;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(94, 23, 66, 0.2);
 }
 
 .tagline {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
-  color: #000;
-  margin: 0;
-  position: absolute;
-  top: 100%; 
-  right: 0;   
-
+  color: #7a2e4d;
+  margin: 4px 0 0 0;
+  position: static;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  border-bottom: 2px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  text-align: center;
-  margin: 0 auto;
-  padding: 20px 0;
-  list-style: none;
-  max-width: 1400px;
-}
-
-.nav-links li {
-  display: flex;
-  justify-content: center;
+  background-color: #5e1742; 
+  box-shadow: 0 4px 8px rgba(94, 23, 66, 0.3);
+  border: none;
 }
 
 .nav-links li a {
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-size: 25px;
-  color: #000;
+  color: #f9f4f7; 
+  padding: 8px 12px;
+  position: relative;
   transition: color 0.3s ease;
 }
 
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #c89a6e; 
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
 .nav-links li a:hover {
-  color: #D4AF37;
+  color: #c89a6e; 
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around; 
+  gap: 0; 
+  list-style: none;
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1400px;
+  align-items: center;
+}
+
+.nav-links li {
+
+  margin: 0;
+  padding: 0;
 }
 
 /* HOME PAGE - Services */
-
 body {
-  background-color: #fdeeee; 
+  background-color: #fff9f9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #0f0f0f; 
+  color: #231322;
   margin: 0;
 }
 
-
 .price-list {
   max-width: 720px;
-  margin: 0 0 0 2rem;  
+  margin: 0 0 0 2rem;
   background: #ffffff;
   padding: 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(94, 23, 66, 0.15);
 }
 
 .price-list h2 {
@@ -88,45 +102,42 @@ body {
   font-weight: 800;
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: #d75480; 
+  color: #5e1742;
 }
 
 .prices-grid {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   gap: 12px 24px;
-  border-top: 2px solid #f5c6d0;
+  border-top: 2px solid #ebc1d2;
   padding-top: 1rem;
-
-  max-width: 600px;      
-  margin-left: auto;     
-  margin-right: auto;    
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 .service {
   font-weight: 600;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f5c6d0;
+  border-bottom: 1px solid #ebc1d2;
 }
 
 .price {
   font-weight: 700;
   text-align: right;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f5c6d0;
-  color: #ad4677; 
+  border-bottom: 1px solid #ebc1d2;
+  color: #a53f6b;
 }
 
-/* HOME PAGE - Schedule*/
-
+/* HOME PAGE - Schedule */
 .schedule-list {
   max-width: 720px;
-  margin: 0 0 0 2rem;  
+  margin: 0 0 0 2rem;
   background: #ffffff;
   padding: 2rem 3rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(94, 23, 66, 0.15);
 }
 
 .schedule-list h2 {
@@ -134,36 +145,35 @@ body {
   font-weight: 800;
   font-size: 3rem;
   margin-bottom: 1.5rem;
-  color: #d75480; 
+  color: #5e1742;
 }
 
 .schedule-grid {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   gap: 12px 24px;
-  border-top: 2px solid #f5c6d0;
+  border-top: 2px solid #ebc1d2;
   padding-top: 1rem;
-
-  max-width: 600px;      
-  margin-left: auto;     
-  margin-right: auto;    
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 .schedule {
   font-weight: 600;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f5c6d0;
+  border-bottom: 1px solid #ebc1d2;
 }
 
 .times {
   font-weight: 700;
   text-align: right;
   padding-bottom: 8px;
-  border-bottom: 1px solid #f5c6d0;
-  color: #ad4677; 
+  border-bottom: 1px solid #ebc1d2;
+  color: #a53f6b;
 }
 
+/* Layout & Responsive */
 .info-section {
   display: flex;
   flex-wrap: wrap;
@@ -187,27 +197,27 @@ body {
   .schedule-list {
     width: 100%;
     max-width: 100%;
-    margin: 1rem auto; /* Add spacing between them */
+    margin: 1rem auto;
   }
 
   .prices-grid,
   .schedule-grid {
-    grid-template-columns: 1fr 1fr; /* Keeps two-column layout but adjusts better on small screens */
+    grid-template-columns: 1fr 1fr;
     gap: 8px 12px;
   }
 
   .price-list h2,
   .schedule-list h2 {
     font-size: 2rem;
-  
   }
-   .brand-container {
+
+  .brand-container {
     align-items: center;
     text-align: center;
   }
 
   .tagline {
-    position: static; /* Removes absolute positioning */
+    position: static;
     margin-top: 10px;
     font-size: 1rem;
   }
@@ -215,52 +225,52 @@ body {
   .business-logo {
     max-width: 100px;
     height: auto;
-}
-
-.price-list,
-.schedule-list {
-  opacity: 0;
-  transform: translateY(15px);
-  animation: fadeInUp 0.6s ease forwards;
-  animation-delay: 0.1s;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: default;
-}
-
-.price-list:hover,
-.schedule-list:hover {
-  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
-  transform: translateY(-3px);
-}
-
-.price-list h2,
-.schedule-list h2 {
-  transition: color 0.3s ease;
-}
-
-.price-list h2:hover,
-.schedule-list h2:hover {
-  color: #b13d6a; 
-}
-
-.service,
-.schedule,
-.price,
-.times {
-  transition: color 0.3s ease;
-}
-
-.service:hover,
-.schedule:hover,
-.price:hover,
-.times:hover {
-  color: #b13d6a;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
-}
+
+  .price-list,
+  .schedule-list {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+
+  .price-list:hover,
+  .schedule-list:hover {
+    box-shadow: 0 8px 18px rgba(94, 23, 66, 0.25);
+    transform: translateY(-3px);
+  }
+
+  .price-list h2,
+  .schedule-list h2 {
+    transition: color 0.3s ease;
+  }
+
+  .price-list h2:hover,
+  .schedule-list h2:hover {
+    color: #a53f6b;
+  }
+
+  .service,
+  .schedule,
+  .price,
+  .times {
+    transition: color 0.3s ease;
+  }
+
+  .service:hover,
+  .schedule:hover,
+  .price:hover,
+  .times:hover {
+    color: #a53f6b;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

@@ -1,7 +1,7 @@
 /* Base styles */
 .top-header {
   padding: 40px 60px 30px;
-  background-color: #fdeeee;
+  background-color: #fce4ec;
 }
 
 .brand-container {
@@ -11,63 +11,79 @@
   position: relative;
 }
 
-.business-logo {
-  max-width: 125px;  
-  height: auto;
-  display: block;    
+.logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 44px;
+  color: #5e1742;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(94, 23, 66, 0.2);
 }
 
 .tagline {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
-  color: #000;
-  margin: 0;
-  position: absolute;
-  top: 100%; 
-  right: 0;   
-
+  color: #7a2e4d;
+  margin: 4px 0 0 0;
+  position: static;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
-  border-bottom: 2px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.nav-links {
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
-  text-align: center;
-  margin: 0 auto;
-  padding: 20px 0;
-  list-style: none;
-  max-width: 1400px;
-}
-
-.nav-links li {
-  display: flex;
-  justify-content: center;
+  background-color: #5e1742; 
+  box-shadow: 0 4px 8px rgba(94, 23, 66, 0.3);
+  border: none;
 }
 
 .nav-links li a {
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-size: 25px;
-  color: #000;
+  color: #f9f4f7; 
+  padding: 8px 12px;
+  position: relative;
   transition: color 0.3s ease;
 }
 
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #c89a6e; 
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
 .nav-links li a:hover {
-  color: #D4AF37;
+  color: #c89a6e; 
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around; 
+  gap: 0; 
+  list-style: none;
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1400px;
+  align-items: center;
+}
+
+.nav-links li {
+
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: #fdeeee; 
+  background-color: #fff0f3; /* soft cream-pink */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #0f0f0f; 
+  color: #5e1742; /* dark rich pink */
   margin: 0;
 }
 
@@ -75,108 +91,112 @@ body {
   max-width: 640px;
   margin: 2rem auto;
   padding: 2.5rem 1.5rem;
-  background: #fff;
+  background: #fff7f9; /* very light blush cream */
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(255, 182, 193, 0.25);
+  box-shadow: 0 14px 35px rgba(94, 23, 66, 0.25); /* darker pink shadow */
   text-align: center;
-  border: 1px solid #f3c0cb;
+  border: 1.5px solid #b45a77; /* deeper rose border */
   animation: fadeSlideIn 0.6s ease-out both;
 }
 
 .appointment-section h2 {
   font-size: 2.2rem;
-  color: #c94e78;
+  color: #5e1742; /* dark rich pink */
   margin-bottom: 1.5rem;
   font-family: 'Playfair Display', serif;
+  letter-spacing: 0.03em;
 }
 
 .appointment-section h2::after {
   content: '';
   display: block;
-  width: 50px;
-  height: 3px;
-  background: #f3c0cb;
-  margin: 10px auto 0;
-  border-radius: 2px;
+  width: 60px;
+  height: 4px;
+  background: #9b3860; /* deep dusty rose */
+  margin: 12px auto 0;
+  border-radius: 3px;
 }
 
 .appointment-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 1rem;
 }
 
 .appointment-form label {
-  font-weight: 600;
-  color: #5a4b4b; 
+  font-weight: 700;
+  color: #6e2a51; /* strong plum */
   text-align: left;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-family: 'Segoe UI', Tahoma, sans-serif;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
   transition: color 0.3s ease;
 }
 
 .appointment-form input,
 .appointment-form select {
-  padding: 0.9rem 1rem;
-  border: 1px solid #f5c6d0;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid #c08a9d; /* dusty rose */
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-family: 'Segoe UI', Tahoma, sans-serif;
   background-color: #fff;
-  transition: all 0.25s ease-in-out, transform 0.2s ease;
+  transition: all 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .appointment-form input:focus,
 .appointment-form select:focus {
-  border-color: #d75480;
-  box-shadow: 0 0 0 4px rgba(215, 84, 128, 0.15);
-  transform: translateY(-2px);
+  border-color: #5e1742; /* dark rich pink */
+  box-shadow: 0 0 0 5px rgba(94, 23, 66, 0.2); /* subtle rich pink glow */
+  transform: translateY(-3px);
 }
 
 .appointment-form button {
-  margin-top: 1rem;
-  padding: 1rem 1.4rem;
-  font-size: 1.05rem;
-  background: linear-gradient(to right, #d75480, #e56f92);
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.6rem;
+  font-size: 1.15rem;
+  background: linear-gradient(to right, #5e1742, #9b3860);
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(215, 84, 128, 0.2);
+  transition: background 0.4s ease, transform 0.3s ease;
+  box-shadow: 0 6px 18px rgba(94, 23, 66, 0.35);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .appointment-form button:hover {
-  background: linear-gradient(to right, #c74470, #d95a80);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(215, 84, 128, 0.3);
+  background: linear-gradient(to right, #4a1035, #7b2c4c);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(94, 23, 66, 0.5);
 }
 
 .note {
-  color: #a36a7b;
-  font-size: 0.85rem;
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
+  color: #844661; /* deep mauve */
+  font-size: 0.9rem;
+  margin-top: -0.4rem;
+  margin-bottom: 1.2rem;
   text-align: left;
+  font-style: italic;
 }
 
 select#time {
   width: 100%;
   background-color: #fff;
-  color: #333;
+  color: #5e1742;
   appearance: none;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="%23b85778" stroke-width="2"/></svg>');
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="%235e1742" stroke-width="2"/></svg>');
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 14px center;
   background-size: 14px 10px;
 }
 
 select#time:focus {
-  border-color: #b85778;
+  border-color: #5e1742;
   outline: none;
-  box-shadow: 0 0 0 2px #fce1e8;
+  box-shadow: 0 0 0 3px rgba(94, 23, 66, 0.15);
 }
 
 @keyframes fadeSlideIn {
@@ -187,6 +207,48 @@ select#time:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .appointment-section {
+    padding: 2rem 1rem;
+    border-radius: 18px;
+  }
+
+  .appointment-section h2 {
+    font-size: 1.9rem;
+  }
+
+  .appointment-form button {
+    font-size: 1.05rem;
+    padding: 1rem 1.4rem;
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .note {
+    font-size: 0.85rem;
+  }
+
+  .brand-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .tagline {
+    position: static;
+    margin-top: 10px;
+    font-size: 1.05rem;
+  }
+
+  .business-logo {
+    max-width: 100px;
+    height: auto;
   }
 }
 
@@ -215,13 +277,13 @@ select#time:focus {
     font-size: 0.8rem;
   }
 
-   .brand-container {
+  .brand-container {
     align-items: center;
     text-align: center;
   }
 
   .tagline {
-    position: static; /* Removes absolute positioning */
+    position: static;
     margin-top: 10px;
     font-size: 1rem;
   }
@@ -229,5 +291,5 @@ select#time:focus {
   .business-logo {
     max-width: 100px;
     height: auto;
-}
+  }
 }
