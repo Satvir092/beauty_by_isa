@@ -205,19 +205,19 @@ body {
   color: #a53f6b;
 }
 
-/* === Responsive Design === */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .info-section {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
-    flex-wrap: wrap;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+    text-align: center;
   }
 
   .price-list,
   .schedule-list {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     margin-bottom: 1.5rem;
   }
 
@@ -232,11 +232,33 @@ body {
   .price-list h2,
   .schedule-list h2 {
     font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .price-item,
+  .schedule-item {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+
+  .brand-container {
     text-align: center;
+    padding: 1rem 0;
+  }
+
+  .brand-logo {
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
-/* === Animation === */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

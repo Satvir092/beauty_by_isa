@@ -184,7 +184,7 @@ body {
 select, label[for="time_preference"] {
   font-family: Arial, sans-serif;
   font-size: 0.95rem;
-  color: #b61e6a;
+  color: #6e2a51;;
   font-weight: 600;
 }
 
@@ -199,7 +199,7 @@ select {
 }
 
 select:focus {
-  border-color: #b61e6a;
+  border-color: #6e2a51;
   outline: none;
 }
 
