@@ -203,7 +203,7 @@ def book():
 
     return render_template("check_email.html", email=email)
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
     # Make sure DB is initialized when starting app
     #init_db()
-    #app.run(debug=False)
+    app.run(debug=False)
