@@ -181,21 +181,26 @@ body {
   font-style: italic;
 }
 
-select#time {
-  width: 100%;
-  background-color: #fff;
-  color: #5e1742;
-  appearance: none;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="%235e1742" stroke-width="2"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 14px 10px;
+select, label[for="time_preference"] {
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #b61e6a;
+  font-weight: 600;
 }
 
-select#time:focus {
-  border-color: #5e1742;
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f3c0cb;
+  border-radius: 8px;
+  background-color: #fff8f0;
+  margin-bottom: 15px;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  border-color: #b61e6a;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(94, 23, 66, 0.15);
 }
 
 @keyframes fadeSlideIn {

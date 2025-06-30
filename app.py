@@ -99,6 +99,7 @@ def verify_email(token):
     email = data['email']
     phone = data['phone']
     instagram = data['instagram']
+    time_preference = data['time_preference']
 
     app.logger.info(f"Booking verified: {name} | {date_val} | Email: {email}")
 
@@ -106,8 +107,8 @@ def verify_email(token):
     with conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO appointments (name, date, email, phone, instagram) VALUES (%s, %s, %s, %s, %s)",
-                (name, date_val, email, phone, instagram)
+                "INSERT INTO appointments (name, date, email, phone, instagram, time_preference) VALUES (%s, %s, %s, %s, %s, %s)",
+                (name, date_val, email, phone, instagram, time_preference)
             )
     conn.close()
 
@@ -126,6 +127,7 @@ def verify_email(token):
             <p><strong>Phone #:</strong> {phone or 'N/A'}</p>
             <p><strong>Date:</strong> {date_val}</p>
             <p><strong>Instagram:</strong> {instagram}</p>
+            <p><strong>Time Preference:</strong> {time_preference}</p>
             <hr style='border: none; height: 1px; background-color: #f3c0cb;' />
         </div>
     </body>
@@ -142,6 +144,7 @@ def book():
     email = request.form['email']
     phone = request.form['phone']
     instagram = request.form["instagram"]
+    time_preference = request.form['time_preference']
 
     app.logger.info(f"Booking requested: {name} | {date_val} | Email: {email}")
 
@@ -160,7 +163,7 @@ def book():
 
     conn.close()
 
-    data = {'name': name, 'date': date_val, 'email': email, 'phone': phone, 'instagram': instagram}
+    data = {'name': name, 'date': date_val, 'email': email, 'phone': phone, 'instagram': instagram, 'time_preference': time_preference}
     token = generate_token(data)
     verify_url = url_for('verify_email', token=token, _external=True)
 

@@ -211,23 +211,28 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 2rem 1rem;
+    flex-wrap: wrap;
   }
 
   .price-list,
   .schedule-list {
     width: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
   .prices-grid,
   .schedule-grid {
-    gap: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
   }
 
   .price-list h2,
   .schedule-list h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
   }
 }
 
