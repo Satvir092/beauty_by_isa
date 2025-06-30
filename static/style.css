@@ -212,6 +212,8 @@ body {
     padding: 1.5rem 1rem;
     gap: 1.5rem;
     text-align: center;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .price-list,
@@ -219,6 +221,8 @@ body {
     width: 100%;
     padding: 1.5rem 1rem;
     margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .prices-grid,
@@ -227,6 +231,7 @@ body {
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .price-list h2,
@@ -239,11 +244,14 @@ body {
   .schedule-item {
     font-size: 0.95rem;
     padding: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .brand-container {
     text-align: center;
     padding: 1rem 0;
+    width: 100%;
   }
 
   .brand-logo {
@@ -255,7 +263,21 @@ body {
   .tagline {
     font-size: 1rem;
     margin-top: 0.5rem;
+    padding: 0 1rem;
   }
+   .nav-links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .nav-links li a {
+    font-size: 20px;
+    padding: 6px 10px;
+
+}
 }
 
 

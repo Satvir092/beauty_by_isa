@@ -183,7 +183,7 @@ body {
 
 select, label[for="time_preference"] {
   font-family: Arial, sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #6e2a51;;
   font-weight: 600;
 }
@@ -255,4 +255,16 @@ select:focus {
     max-width: 100px;
     height: auto;
   }
+   .nav-links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .nav-links li a {
+    font-size: 20px;
+    padding: 6px 10px;
+}
 }
