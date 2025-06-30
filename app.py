@@ -6,7 +6,6 @@ from datetime import date
 import logging
 import os
 import psycopg2
-from psycopg2.extras import RealDictCursor
 
 logging.basicConfig(
     level=logging.INFO,
@@ -190,8 +189,7 @@ def book():
 
     return render_template("check_email.html", email=email)
 
-
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Make sure DB is initialized when starting app
-    init_db()
-    app.run(debug=False)
+    #init_db()
+    #app.run(debug=False)
