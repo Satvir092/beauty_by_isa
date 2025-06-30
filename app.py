@@ -106,6 +106,17 @@ def verify_email(token):
     conn = get_db_connection()
     with conn:
         with conn.cursor() as cursor:
+
+            cursor.execute(
+                "SELECT * FROM appointments WHERE email = %s AND date = %s",
+                (email, date_val)
+            )
+            existing = cursor.fetchone()
+
+            if existing:
+                
+                return render_template("confirmation.html", name=name, date=date_val)
+            
             cursor.execute(
                 "INSERT INTO appointments (name, date, email, phone, instagram, time_preference) VALUES (%s, %s, %s, %s, %s, %s)",
                 (name, date_val, email, phone, instagram, time_preference)
