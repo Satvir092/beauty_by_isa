@@ -181,13 +181,6 @@ body {
   font-style: italic;
 }
 
-select, label[for="time_preference"] {
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  color: #6e2a51;;
-  font-weight: 600;
-}
-
 select {
   width: 100%;
   padding: 10px;

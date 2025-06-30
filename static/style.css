@@ -212,17 +212,18 @@ body {
     padding: 1.5rem 1rem;
     gap: 1.5rem;
     text-align: center;
-    width: 100%;
-    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .price-list,
   .schedule-list {
     width: 100%;
+    max-width: 100%;
     padding: 1.5rem 1rem;
     margin-bottom: 1.5rem;
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 
   .prices-grid,
@@ -231,13 +232,8 @@ body {
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
-  }
-
-  .price-list h2,
-  .schedule-list h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
   }
 
   .price-item,
@@ -252,6 +248,8 @@ body {
     text-align: center;
     padding: 1rem 0;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .brand-logo {
@@ -265,6 +263,12 @@ body {
     margin-top: 0.5rem;
     padding: 0 1rem;
   }
+
+  .price-list,
+  .schedule-list {
+    margin: 0 auto !important;
+  }
+
    .nav-links {
     flex-direction: column;
     justify-content: center;
