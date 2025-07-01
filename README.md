@@ -1,8 +1,8 @@
-# 💅 Beautyy Byisa — Online Booking Website
+# 💅 Beauty By Isa — Online Booking Website
 
 This is the official booking website for [@beautyy_byisa](https://instagram.com/beautyy_byisa), a nail technician providing professional beauty services. The site allows clients to book appointments, view pricing, and review important policies — all in one place.
 
-Live at 👉 [[https://beautyybyisa.onrender.com](https://beautybyisa.onrender.com/)
+Live at 👉 [https://beautyybyisa.onrender.com](https://beautybyisa.onrender.com/)
 
 ---
 
